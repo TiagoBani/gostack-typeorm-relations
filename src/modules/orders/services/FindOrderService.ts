@@ -22,9 +22,14 @@ class FindOrderService {
   ) {}
 
   public async execute({ id }: IRequest): Promise<Order | undefined> {
-    // TODO wip
+    // TODO done
     const order = await this.ordersRepository.findById(id);
     if (!order) throw new AppError('Order not found.');
+
+    order.order_products = order.order_products.map(product => {
+      Object.assign(product, { price: Number(product.price).toFixed(2) });
+      return product;
+    });
 
     return order;
   }
