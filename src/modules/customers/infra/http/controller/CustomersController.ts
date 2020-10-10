@@ -6,7 +6,6 @@ import { container } from 'tsyringe';
 
 export default class CustomersController {
   public async create(request: Request, response: Response): Promise<Response> {
-    // TODO done
     const { name, email } = request.body;
 
     const createCustomerService = container.resolve(CreateCustomerService);

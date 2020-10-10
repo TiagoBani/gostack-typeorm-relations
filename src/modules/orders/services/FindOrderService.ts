@@ -22,7 +22,6 @@ class FindOrderService {
   ) {}
 
   public async execute({ id }: IRequest): Promise<Order | undefined> {
-    // TODO done
     const order = await this.ordersRepository.findById(id);
     if (!order) throw new AppError('Order not found.');
 

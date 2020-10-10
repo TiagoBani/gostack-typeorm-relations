@@ -8,7 +8,6 @@ import AppError from '@shared/errors/AppError';
 
 export default class OrdersController {
   public async show(request: Request, response: Response): Promise<Response> {
-    // TODO done
     const { id } = request.params;
 
     const findOrderService = container.resolve(FindOrderService);
@@ -19,7 +18,6 @@ export default class OrdersController {
   }
 
   public async create(request: Request, response: Response): Promise<Response> {
-    // TODO done
     const { customer_id, products } = request.body;
 
     const createOrderService = container.resolve(CreateOrderService);
